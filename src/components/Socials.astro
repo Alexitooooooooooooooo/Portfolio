@@ -1,0 +1,32 @@
+---
+interface Social {
+  name: string;
+  url: string;
+  icon: string;
+}
+
+interface Props {
+  socials: Social[];
+}
+
+const { socials } = Astro.props;
+---
+
+<section>
+  <h2 class="text-3xl font-bold text-white flex items-center gap-3 mt-6">
+    Social
+    <div class="h-px bg-zinc-800 flex-grow ml-4"></div>
+  </h2>
+  <div class="flex flex-wrap gap-3 pt-2">
+    {socials.map(social => (
+      <a 
+        href={social.url} 
+        target="_blank" 
+        class="flex items-center gap-2 px-4 py-1.5 bg-portfolio-panel border border-white/5 text-portfolio-accent text-sm font-mono rounded-lg hover:bg-portfolio-accent/10 transition-colors cursor-default"
+      >
+        {social.icon && <img src={social.icon} alt={social.name} class="w-5 h-5" loading="lazy" />}
+        {social.name}
+      </a>
+    ))}
+  </div>
+</section>

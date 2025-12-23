@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --color-portfolio-bg: #181f2a;
+  --color-portfolio-panel: #232b3a;
+  --color-portfolio-accent: #64ffda;
+  --color-portfolio-text: #e6f1ff;
+  --color-portfolio-muted: #8892b0;
+}
+
+body {
+  background-color: var(--color-portfolio-bg);
+  color: var(--color-portfolio-text);
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply tracking-tight;
+}

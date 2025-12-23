@@ -1,0 +1,58 @@
+---
+interface Tech {
+  name: string;
+  icon?: string;
+}
+
+interface ExperienceItem {
+  company: string;
+  role: string;
+  date: string;
+  desc: string;
+  techs: string[];
+}
+
+interface Props {
+  experience: ExperienceItem[];
+  techStack: Tech[];
+}
+
+const { experience, techStack } = Astro.props;
+---
+
+<section class="space-y-10">
+  <h2 class="text-3xl font-bold text-white flex items-center gap-3">
+    Experiencia
+    <div class="h-px bg-zinc-800 flex-grow ml-4"></div>
+  </h2>
+  <div class="space-y-12 border-l-2 border-zinc-800/50 pl-6 ml-2 relative">
+    {experience.map(exp => (
+      <div class="relative group">
+        <div class="absolute -left-[31px] top-2 w-4 h-4 rounded-full bg-zinc-900 border-2 border-zinc-700 group-hover:border-portfolio-accent group-hover:bg-portfolio-accent/20 transition-all duration-300 shadow-[0_0_0_4px_rgba(24,31,42,1)]"></div>
+        <h3 class="font-bold text-xl text-white group-hover:text-portfolio-accent transition-colors">
+          {exp.role} <span class="text-portfolio-muted">@</span> {exp.company}
+        </h3>
+        <span class="inline-block mt-1 px-2 py-0.5 rounded text-xs text-portfolio-muted font-mono bg-white/5 border border-white/5">
+          {exp.date}
+        </span>
+        <p class="mt-4 text-base text-zinc-400 leading-relaxed max-w-3xl">
+          {exp.desc}
+        </p>
+        
+        {exp.techs && (
+          <div class="flex flex-wrap gap-2 mt-4">
+            {exp.techs.map(techName => {
+              const techInfo = techStack.find(t => t.name === techName);
+              return (
+                <span class="flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono text-portfolio-muted bg-white/5 rounded-md border border-white/5 hover:border-portfolio-accent/30 hover:bg-portfolio-accent/5 transition-colors cursor-default">
+                  {techInfo?.icon && <img src={techInfo.icon} alt={techName} class="w-3.5 h-3.5 opacity-80" loading="lazy" />}
+                  {techName}
+                </span>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+</section>

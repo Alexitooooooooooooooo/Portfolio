@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  bio: string;
+  profileImage: ImageMetadata;
+  name: string;
+}
+
+const { bio, profileImage, name } = Astro.props;
+---
+
+<section class="space-y-6">
+  <h2 class="text-3xl font-bold text-white flex items-center gap-3">
+    Sobre mí
+    <div class="h-px bg-zinc-800 flex-grow ml-4"></div>
+  </h2>
+  <div class="flex flex-col md:flex-row items-center gap-8">
+    <div class="flex-1 space-y-6">
+      <p class="text-base text-zinc-400 leading-relaxed max-w-3xl text-justify md:text-left">
+        {bio}
+      </p>
+      <a 
+        href="/curriculum.pdf" 
+        download="Javier_Pacheco_CV.pdf" 
+        class="inline-flex items-center gap-2 px-6 py-2 bg-portfolio-panel border border-white/10 rounded-lg text-white font-medium hover:bg-portfolio-accent hover:text-portfolio-bg transition-all duration-300 group"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:animate-bounce">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Descargar CV
+      </a>
+    </div>
+    <div class="flex-shrink-0 relative group">
+      <div class="absolute inset-0 bg-gradient-to-tr from-teal-500 to-blue-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
+      <Image 
+        src={profileImage} 
+        alt={name} 
+        class="relative w-40 h-40 md:w-56 md:h-56 object-cover rounded-2xl rotate-3 border-2 border-zinc-800/50 group-hover:rotate-0 transition-all duration-300 shadow-2xl" 
+      />
+    </div>
+  </div>
+</section>
