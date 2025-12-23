@@ -110,7 +110,8 @@ export const info = {
       title: "Portafolio",
       desc: "Portafolio personal creado con Astro, Tailwind",
       tags: ["Tailwind", "Astro"],
-      url: "https://alexitodev.me/"
+      url: "https://www.alexitodev.me/",
+      gitHub: "https://github.com/Alexitooooooooooooooo/Portfolio"
     },
     {
       title: "AlexitoFinanzas",
