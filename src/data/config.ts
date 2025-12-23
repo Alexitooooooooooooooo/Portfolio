@@ -81,14 +81,14 @@ export const info = {
       role: "Full Stack Developer Jr",
       date: "Proximamente (2026)",
       desc: "Desarrollo de software interno para juega en linea",
-      techs: ["Laravel", "Vue.js", "Tailwind"]
+      techs: ["PHP & Laravel", "Vue.js", "Tailwind"]
     },
     {
       company: "JuegaEnLinea",
       role: "Full Stack Developer Jr",
       date: "2025 (Septiembre) - 2025 (Diciembre)",
       desc: "Trabajo en equipo de software interno para juega en linea, formando parte del equipo como pasante",
-      techs: ["Laravel", "Vue.js", "Tailwind"]
+      techs: ["PHP & Laravel", "Vue.js", "Tailwind"]
     },
     {
       company: "Operadora de juegos de azar en línea.",
