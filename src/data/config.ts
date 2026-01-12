@@ -79,7 +79,7 @@ export const info = {
     {
       company: "JuegaEnLinea",
       role: "Full Stack Developer Jr",
-      date: "Proximamente (2026)",
+      date: "2026 - 12/01 - Actualidad",
       desc: "Desarrollo de software interno para juega en linea",
       techs: ["PHP & Laravel", "Vue.js", "Tailwind"]
     },
@@ -89,13 +89,6 @@ export const info = {
       date: "2025 (Septiembre) - 2025 (Diciembre)",
       desc: "Trabajo en equipo de software interno para juega en linea, formando parte del equipo como pasante",
       techs: ["PHP & Laravel", "Vue.js", "Tailwind"]
-    },
-    {
-      company: "Operadora de juegos de azar en línea.",
-      role: "Supervisor/Agente Soporte Técnico",
-      date: "2020 - Actualidad",
-      desc: "Responsable de supervisar y brindar soporte técnico en un entorno de casino, asegurando el correcto funcionamiento de los sistemas y la satisfacción del cliente.",
-      techs: ["Atención al cliente", "Resolución de problemas", "Gestión de equipos", "LiveChat", "Jira"]
     }
   ],
 
