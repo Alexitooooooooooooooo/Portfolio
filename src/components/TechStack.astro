@@ -1,14 +1,13 @@
 ---
-interface Tech {
-  name: string;
-  icon?: string;
-}
+import { technologies } from "../data/config";
 
 interface Props {
-  techStack: Tech[];
+  techStack: string[];
 }
 
 const { techStack } = Astro.props;
+// Mapear los nombres a objetos con icono
+const techStackWithIcons = techStack.map(name => technologies.find(t => t.name === name) || { name });
 ---
 
 <section>
@@ -18,7 +17,7 @@ const { techStack } = Astro.props;
   </h2>
 
   <div class="flex flex-wrap gap-3 pt-2 mt-6">
-    {techStack.map(tech => (
+    {techStackWithIcons.map(tech => (
       <span class="flex items-center gap-2 px-4 py-1.5 bg-portfolio-panel border border-white/5 text-portfolio-accent text-sm font-mono rounded-lg hover:bg-portfolio-accent/10 transition-colors cursor-default">
         {tech.icon && <img src={tech.icon} alt={tech.name} class="w-5 h-5" loading="lazy" />}
         {tech.name}

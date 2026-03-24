@@ -1,22 +1,19 @@
 ---
-interface Tech {
-  name: string;
-  icon?: string;
-}
+import { technologies } from "../data/config";
 
 interface Project {
   title: string;
   desc: string;
   tags: string[];
   url?: string;
+  gitHub?: string;
 }
 
 interface Props {
   projects: Project[];
-  techStack: Tech[];
 }
 
-const { projects, techStack } = Astro.props;
+const { projects } = Astro.props;
 ---
 
 <section class="space-y-6">
@@ -33,7 +30,7 @@ const { projects, techStack } = Astro.props;
         </p>
         <div class="flex flex-wrap gap-2 relative z-10 mb-4">
           {project.tags.map(techName => {
-            const techInfo = techStack.find(t => t.name === techName);
+            const techInfo = technologies.find(t => t.name === techName);
             return (
               <span class="flex items-center gap-1.5 px-2 py-1 text-[10px] font-mono text-cyan-300 bg-cyan-900/20 rounded border border-cyan-800/30 uppercase tracking-widest">
                 {techInfo?.icon && <img src={techInfo.icon} alt={techName} class="w-3 h-3 opacity-90" loading="lazy" />}

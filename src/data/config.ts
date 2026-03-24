@@ -1,3 +1,22 @@
+// Array global de tecnologías con iconos
+export const technologies = [
+  { name: "PHP & Laravel", icon: "https://cdn.simpleicons.org/laravel/F05340" },
+  { name: "javascript", icon: "https://cdn.simpleicons.org/javascript/339933" },
+  { name: "Astro", icon: "https://cdn.simpleicons.org/astro/white" },
+  { name: "Tailwind", icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
+  { name: "Vue.js", icon: "https://cdn.simpleicons.org/vue.js/4FC08D" },
+  { name: "Nuxt.js", icon: "https://cdn.simpleicons.org/nuxt/00DC82" },
+  { name: "Jira", icon: "https://cdn.simpleicons.org/jira/0052CC" },
+  { name: "PostgreSQL", icon: "https://cdn.simpleicons.org/postgresql/00DC82" },
+  { name: "Python", icon: "https://cdn.simpleicons.org/python/00DC82" },
+  { name: "MySQL", icon: "https://cdn.simpleicons.org/mysql/00DC82" },
+
+  { name: "Flutter", icon: "https://cdn.simpleicons.org/flutter/02569B" },
+  { name: "Dart", icon: "https://cdn.simpleicons.org/dart/0175C2" },
+  { name: "NuxtUI", icon: "https://cdn.simpleicons.org/nuxt/00DC82" },
+  { name: "Android Studio", icon: "https://cdn.simpleicons.org/androidstudio/3DDC84" },
+];
+
 export const info = {
   name: "Javier Pacheco",
   role: "Junior Full Stack Developer",
@@ -10,46 +29,16 @@ export const info = {
   },
 
   techStack: [
-    {
-      name: "PHP & Laravel",
-      icon: "https://cdn.simpleicons.org/laravel/F05340"
-    },
-    {
-      name: "javascript",
-      icon: "https://cdn.simpleicons.org/javascript/339933"
-    },
-    {
-      name: "Astro",
-      icon: "https://cdn.simpleicons.org/astro/white"
-    },
-    {
-      name: "Tailwind",
-      icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4"
-    },
-    {
-      name: "Vue.js",
-      icon: "https://cdn.simpleicons.org/vue.js/4FC08D"
-    },
-    {
-      name: "Nuxt.js",
-      icon: "https://cdn.simpleicons.org/nuxt/00DC82"
-    },
-    {
-      name: "Jira",
-      icon: "https://cdn.simpleicons.org/jira/0052CC"
-    },
-    {
-      name: "PostgreSQL",
-      icon: "https://cdn.simpleicons.org/postgresql/00DC82"
-    },
-    {
-      name: "Python",
-      icon: "https://cdn.simpleicons.org/python/00DC82"
-    },
-    {
-      name: "MySQL",
-      icon: "https://cdn.simpleicons.org/mysql/00DC82"
-    }
+    "PHP & Laravel",
+    "javascript",
+    "Astro",
+    "Tailwind",
+    "Vue.js",
+    "Nuxt.js",
+    "Jira",
+    "PostgreSQL",
+    "Python",
+    "MySQL"
   ],
 
   socials: [
@@ -114,7 +103,7 @@ export const info = {
     {
       title: "Swipe-Flutter",
       desc: "Photo Swipe es una aplicación móvil desarrollada en Flutter que te ayuda a organizar y limpiar tu galería de fotos de manera rápida, divertida e inteligente al estilo swipe de TINDER.",
-      tags: ["Flutter", "Dart", "Tailwind"],
+      tags: ["Flutter", "Dart", "Tailwind", "Android Studio"],
       gitHub: "https://github.com/Alexitooooooooooooooo/swipe_galley_flutter"
     },
   ]
