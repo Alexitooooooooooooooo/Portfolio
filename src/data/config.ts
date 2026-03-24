@@ -111,5 +111,11 @@ export const info = {
       desc: "Plataforma de finanzas personales con historial de transacciones, para registrar pagos, gastos y deudas utilizando saldo o netamente con registros, API con laravel y front con NUXT utilizando NuxtUI (En desarrollo)",
       tags: ["Tailwind", "PHP & Laravel", "Nuxt.js", "NuxtUI", "Vue.js"],
     },
+    {
+      title: "Swipe-Flutter",
+      desc: "Photo Swipe es una aplicación móvil desarrollada en Flutter que te ayuda a organizar y limpiar tu galería de fotos de manera rápida, divertida e inteligente al estilo swipe de TINDER.",
+      tags: ["Flutter", "Dart", "Tailwind"],
+      gitHub: "https://github.com/Alexitooooooooooooooo/swipe_galley_flutter"
+    },
   ]
 };
