@@ -15,6 +15,8 @@ export const technologies = [
   { name: "Dart", icon: "https://cdn.simpleicons.org/dart/0175C2" },
   { name: "NuxtUI", icon: "https://cdn.simpleicons.org/nuxt/00DC82" },
   { name: "Android Studio", icon: "https://cdn.simpleicons.org/androidstudio/3DDC84" },
+  { name: "Svelte", icon: "https://cdn.simpleicons.org/svelte/FF3E00" },
+  { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
 ];
 
 export const info = {
@@ -24,7 +26,7 @@ export const info = {
   bio: "Soy un desarrollador Full Stack Jr con experiencia en la creación de aplicaciones web utilizando Laravel, Vue.js y Tailwind CSS. Soy Técnico Superior Universitario (TSU), graduado académicamente en el IUJO Barquisimeto. Me apasiona aprender nuevas tecnologías y mejorar mis habilidades para desarrollar soluciones eficientes y escalables (Esta web está desarrollada con Astro). Actualmente, estoy buscando oportunidades para crecer profesionalmente, adquirir nuevos aprendizajes y trabajar con nuevas tecnologías.",
 
   contact: {
-    email: "Javieralexfeik@gmail.com",
+    emails: ["Javieralexfeik@gmail.com", "hola@alexitodev.me"],
     phones: ["+584245514100", "+584121037372"]
   },
 
@@ -38,7 +40,8 @@ export const info = {
     "Jira",
     "PostgreSQL",
     "Python",
-    "MySQL"
+    "MySQL",
+    "Svelte"
   ],
 
   socials: [
@@ -69,15 +72,15 @@ export const info = {
       company: "JuegaEnLinea",
       role: "Full Stack Developer Jr",
       date: "2026 - 12/01 - Actualidad",
-      desc: "Desarrollo de software interno para juega en linea",
-      techs: ["PHP & Laravel", "Vue.js", "Tailwind"]
+      desc: "Desarrollo de aplicaciones internas y cambios visuales en la pagina principal de JuegaEnLinea, mejorando la experiencia de usuario y la interfaz publica del sitio.",
+      techs: ["PHP & Laravel", "Nuxt.js", "Vue.js", "Svelte", "Tailwind"]
     },
     {
       company: "JuegaEnLinea",
       role: "Full Stack Developer Jr",
       date: "2025 (Septiembre) - 2025 (Diciembre)",
       desc: "Trabajo en equipo de software interno para juega en linea, formando parte del equipo como pasante",
-      techs: ["PHP & Laravel", "Vue.js", "Tailwind"]
+      techs: ["PHP & Laravel", "Vue.js", "Svelte", "Tailwind"]
     }
   ],
 
@@ -96,9 +99,9 @@ export const info = {
       gitHub: "https://github.com/Alexitooooooooooooooo/Portfolio"
     },
     {
-      title: "AlexitoFinanzas",
-      desc: "Plataforma de finanzas personales con historial de transacciones, para registrar pagos, gastos y deudas utilizando saldo o netamente con registros, API con laravel y front con NUXT utilizando NuxtUI (En desarrollo)",
-      tags: ["Tailwind", "PHP & Laravel", "Nuxt.js", "NuxtUI", "Vue.js"],
+      title: "Pokelite",
+      desc: "Roguelite tactico de Pokemon con combates en tiempo real (Phaser), sistema de tipos, items equipables, golpes criticos, gimnasios y capturas. Estilo visual retro pixel-art inspirado en GBA/DS.",
+      tags: ["Vue.js", "Nuxt.js", "TypeScript", "Tailwind"],
     },
     {
       title: "Swipe-Flutter",

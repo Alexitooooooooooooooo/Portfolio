@@ -17,10 +17,20 @@ const { projects } = Astro.props;
 ---
 
 <section class="space-y-6">
-  <h2 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">Proyectos</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div class="flex items-center justify-between">
+    <h2 class="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">Proyectos</h2>
+    <div class="flex gap-2">
+      <button id="carousel-prev" class="p-2 rounded-lg bg-portfolio-panel border border-white/10 text-portfolio-muted hover:text-white hover:border-portfolio-accent/40 transition-colors disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Anterior">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button id="carousel-next" class="p-2 rounded-lg bg-portfolio-panel border border-white/10 text-portfolio-muted hover:text-white hover:border-portfolio-accent/40 transition-colors disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Siguiente">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+  </div>
+  <div id="carousel-track" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 -mx-6 px-6 no-scrollbar" style="will-change: scroll-position;">
     {projects.map(project => (
-      <div class="group relative p-6 bg-portfolio-panel border border-white/5 rounded-2xl hover:border-portfolio-accent/30 transition-all duration-300 hover:shadow-2xl hover:shadow-portfolio-accent/10 overflow-hidden">
+      <div class="group shrink-0 w-[85vw] md:w-[42vw] lg:w-[30vw] snap-center relative p-6 bg-portfolio-panel border border-white/5 rounded-2xl hover:border-portfolio-accent/30 transition-all duration-300 hover:shadow-2xl hover:shadow-portfolio-accent/10 overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-portfolio-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         <h3 class="font-bold text-xl text-white mb-2 relative z-10 group-hover:text-portfolio-accent transition-colors">
           {project.title}
@@ -63,3 +73,94 @@ const { projects } = Astro.props;
     ))}
   </div>
 </section>
+
+<style>
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    var track = document.getElementById('carousel-track');
+    var prevBtn = document.getElementById('carousel-prev');
+    var nextBtn = document.getElementById('carousel-next');
+
+    if (!track || !prevBtn || !nextBtn) return;
+
+    var isDown = false;
+    var startX = 0;
+    var scrollStart = 0;
+    var rafId = 0;
+
+    var updateButtons = function() {
+      var maxScroll = track.scrollWidth - track.clientWidth;
+      prevBtn.disabled = track.scrollLeft <= 0;
+      nextBtn.disabled = track.scrollLeft >= maxScroll - 2;
+    };
+
+    var getScrollAmount = function() {
+      var card = track.querySelector('.snap-center');
+      if (!card) return track.clientWidth * 0.8;
+      return card.offsetWidth + 24;
+    };
+
+    var startDrag = function(clientX) {
+      isDown = true;
+      track.style.cursor = 'grabbing';
+      track.style.userSelect = 'none';
+      track.style.scrollSnapType = 'none';
+      track.style.scrollBehavior = 'auto';
+      startX = clientX;
+      scrollStart = track.scrollLeft;
+    };
+
+    var endDrag = function() {
+      if (!isDown) return;
+      isDown = false;
+      track.style.cursor = 'grab';
+      track.style.removeProperty('user-select');
+      track.style.scrollSnapType = 'x mandatory';
+      track.style.scrollBehavior = 'smooth';
+
+      var target = Math.round(track.scrollLeft / getScrollAmount()) * getScrollAmount();
+      track.scrollTo({ left: target, behavior: 'smooth' });
+    };
+
+    var moveDrag = function(clientX) {
+      if (!isDown) return;
+      var walk = (startX - clientX) * 1.5;
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(function() {
+        track.scrollLeft = scrollStart + walk;
+      });
+    };
+
+    track.addEventListener('mousedown', function(e) { e.preventDefault(); startDrag(e.pageX); });
+    track.addEventListener('mouseleave', endDrag);
+    track.addEventListener('mouseup', endDrag);
+    track.addEventListener('mousemove', function(e) { moveDrag(e.pageX); });
+
+    track.addEventListener('touchstart', function(e) { startDrag(e.touches[0].pageX); }, { passive: true });
+    track.addEventListener('touchend', endDrag);
+    track.addEventListener('touchmove', function(e) { moveDrag(e.touches[0].pageX); }, { passive: true });
+
+    prevBtn.addEventListener('click', function() {
+      track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', function() {
+      track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+    });
+
+    track.addEventListener('scroll', updateButtons, { passive: true });
+    window.addEventListener('resize', updateButtons);
+    updateButtons();
+
+    track.style.cursor = 'grab';
+  })();
+</script>

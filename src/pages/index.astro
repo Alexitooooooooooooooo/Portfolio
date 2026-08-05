@@ -13,7 +13,7 @@ import Contact from '../components/Contact.astro';
 ---
 
 <Layout title={info.name}>
-  <main class="max-w-7xl mx-auto px-6 py-12 space-y-16 text-zinc-300">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-12 sm:space-y-16 text-zinc-300">
     <Hero name={info.name} role={info.role} />
     
     <About bio={info.bio} profileImage={profileImage} name={info.name} />
@@ -22,7 +22,7 @@ import Contact from '../components/Contact.astro';
     
     <Socials socials={info.socials} />
     
-    <Experience experience={info.experience} techStack={info.techStack} />
+    <Experience experience={info.experience} />
     
     <Projects projects={info.projects} />
     
