@@ -17,6 +17,8 @@ export const technologies = [
   { name: "Android Studio", icon: "https://cdn.simpleicons.org/androidstudio/3DDC84" },
   { name: "Svelte", icon: "https://cdn.simpleicons.org/svelte/FF3E00" },
   { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
+  { name: "Supabase", icon: "https://cdn.simpleicons.org/supabase/3ECF8E" },
+  { name: "Vite", icon: "https://cdn.simpleicons.org/vite/646CFF" },
 ];
 
 export const info = {
@@ -39,6 +41,8 @@ export const info = {
     "Nuxt.js",
     "Jira",
     "PostgreSQL",
+    "Supabase",
+    "Vite",
     "Python",
     "MySQL",
     "Svelte"
@@ -102,6 +106,12 @@ export const info = {
       title: "Pokelite",
       desc: "Roguelite tactico de Pokemon con combates en tiempo real (Phaser), sistema de tipos, items equipables, golpes criticos, gimnasios y capturas. Estilo visual retro pixel-art inspirado en GBA/DS.",
       tags: ["Vue.js", "Nuxt.js", "TypeScript", "Tailwind"],
+    },
+    {
+      title: "Pokédex Quiz",
+      desc: "Minijuego interactivo de adivinanza de Pokémon con modo singleplayer y multiplayer en tiempo real: salas con código de invitación, rondas sincronizadas, ranking en vivo y eliminación de jugadores. Autocompletado sobre 1025 Pokémon, sistema de vidas, cronómetro y puntuación por velocidad o cercanía. Sincronizado con Supabase (PostgreSQL + Realtime) con detección de desconexiones y re-sincronización automática.",
+      tags: ["Vue.js", "Tailwind", "Supabase", "Vite", "javascript"],
+      url: "https://pokedex.alexitodev.me/"
     },
     {
       title: "Swipe-Flutter",
