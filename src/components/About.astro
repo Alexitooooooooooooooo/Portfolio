@@ -5,21 +5,34 @@ interface Props {
   bio: string;
   profileImage: ImageMetadata;
   name: string;
+  highlights?: string[];
 }
 
-const { bio, profileImage, name } = Astro.props;
+const { bio, profileImage, name, highlights = [] } = Astro.props;
 ---
 
 <section class="space-y-6">
   <h2 class="text-2xl sm:text-3xl font-bold text-white flex items-center gap-3">
     Sobre mí
-    <div class="h-px bg-zinc-800 flex-grow ml-4"></div>
+    <div class="h-px bg-gradient-to-r from-portfolio-muted/50 to-transparent flex-grow ml-4"></div>
   </h2>
   <div class="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8">
     <div class="order-2 md:order-1 flex-1 space-y-6">
       <p class="text-sm sm:text-base text-zinc-400 leading-relaxed max-w-3xl text-center md:text-left">
         {bio}
       </p>
+
+      {highlights.length > 0 && (
+        <ul class="space-y-2.5 text-sm sm:text-base text-zinc-400 max-w-3xl mx-auto md:mx-0">
+          {highlights.map(item => (
+            <li class="flex items-start gap-2.5">
+              <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-portfolio-accent shrink-0"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+
       <div class="flex justify-center md:justify-start">
         <a 
           href="/Javier_Pacheco_CV.pdf" 
