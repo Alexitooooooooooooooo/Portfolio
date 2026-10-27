@@ -116,9 +116,6 @@ const { projects } = Astro.props;
     var startX = 0;
     var scrollStart = 0;
     var rafId = 0;
-    var autoplayId = null;
-    var AUTOPLAY_DELAY = 4000;
-    var isVisible = true;
 
     var updateButtons = function() {
       var maxScroll = track.scrollWidth - track.clientWidth;
@@ -152,7 +149,6 @@ const { projects } = Astro.props;
 
       var target = Math.round(track.scrollLeft / getScrollAmount()) * getScrollAmount();
       track.scrollTo({ left: target, behavior: 'smooth' });
-      restartAutoplay();
     };
 
     var moveDrag = function(clientX) {
@@ -173,49 +169,12 @@ const { projects } = Astro.props;
     track.addEventListener('touchend', endDrag);
     track.addEventListener('touchmove', function(e) { moveDrag(e.touches[0].pageX); }, { passive: true });
 
-    var goNext = function() {
-      var maxScroll = track.scrollWidth - track.clientWidth;
-      if (maxScroll <= 0) return;
-      if (track.scrollLeft >= maxScroll - 2) {
-        track.scrollTo({ left: 0, behavior: 'smooth' });
-      } else {
-        track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
-      }
-    };
-
-    var startAutoplay = function() {
-      stopAutoplay();
-      autoplayId = setInterval(function() {
-        if (isDown || !isVisible) return;
-        goNext();
-      }, AUTOPLAY_DELAY);
-    };
-
-    var stopAutoplay = function() {
-      if (autoplayId !== null) {
-        clearInterval(autoplayId);
-        autoplayId = null;
-      }
-    };
-
-    var restartAutoplay = function() {
-      stopAutoplay();
-      startAutoplay();
-    };
-
     prevBtn.addEventListener('click', function() {
       track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
-      restartAutoplay();
     });
 
     nextBtn.addEventListener('click', function() {
       track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
-      restartAutoplay();
-    });
-
-    document.addEventListener('visibilitychange', function() {
-      isVisible = !document.hidden;
-      if (isVisible) startAutoplay(); else stopAutoplay();
     });
 
     track.addEventListener('scroll', updateButtons, { passive: true });
@@ -223,6 +182,5 @@ const { projects } = Astro.props;
     updateButtons();
 
     track.style.cursor = 'grab';
-    startAutoplay();
   })();
 </script>
